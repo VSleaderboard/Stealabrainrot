@@ -1,0 +1,142 @@
+/* Container styling */
+.leaderboard-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #181c2f;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  padding: 24px 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Leaderboard title */
+.leaderboard-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+
+/* List styling */
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+
+/* Entry styling */
+.leaderboard-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 10px 24px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: calc(var(--i) * 0.12s);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.leaderboard-entry:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Keyframes for entry animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rank styling */
+.leaderboard-rank {
+  font-weight: bold;
+  color: #ffd700;
+  margin-right: 16px;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+
+/* Name styling */
+.leaderboard-name {
+  flex: 1;
+  margin-left: 8px;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+
+/* Score styling */
+.leaderboard-score {
+  font-weight: bold;
+  color: #7cf6ff;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+/* ...existing code... */
+
+.leaderboard-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .leaderboard-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* ...existing code... */
+body {
+  background: linear-gradient(135deg, #1a1c2b, #2a2d3f);
+  color: #080808;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.leaderboard-container {
+  position: relative;
+  /* ...existing code... */
+}
+
+.leaderboard-container::before {
+  content: "";
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 48px;
+  z-index: 0;
+  pointer-events: none;
+  /* Pixel crown using gradients */
+  background:
+    /* Crown base */ linear-gradient(#ffd700 0 0) 20px 32px/40px 8px no-repeat, /* Left spike */ linear-gradient(#ffd700 0 0) 10px 16px/12px 24px no-repeat, /* Middle spike */ linear-gradient(#ffd700 0 0) 34px 4px/12px 36px no-repeat, /* Right spike */ linear-gradient(#ffd700 0 0) 58px 16px/12px 24px no-repeat, /* Left jewel */ radial-gradient(circle at 16px 32px, #7cf6ff 4px, transparent 5px), /* Middle jewel */ radial-gradient(circle at 40px 16px, #ff5e5e 4px, transparent 5px),
+    /* Right jewel */ radial-gradient(circle at 64px 32px, #7cf6ff 4px, transparent 5px);
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.18));
+  opacity: 0.95;
+}
